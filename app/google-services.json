@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "292878128953",
+    "project_id": "signin-fc4c4",
+    "storage_bucket": "signin-fc4c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292878128953:android:f82a33ec42a3af777c7ae8",
+        "android_client_info": {
+          "package_name": "com.example.pharasayo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292878128953-jeh9ktt5ausdke1eh45hd0l36ju007b7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pharasayo",
+            "certificate_hash": "6ebcebd8adc490552d75a3af5f4893ec6a5c0c90"
+          }
+        },
+        {
+          "client_id": "292878128953-ld43hlmlk5spjmnoa3gavc4tt96adcv9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGzPZyZBiEMA-IY_P3_L3iI0r1PXnk8j8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "292878128953-ld43hlmlk5spjmnoa3gavc4tt96adcv9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

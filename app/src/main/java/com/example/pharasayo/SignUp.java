@@ -2,14 +2,13 @@ package com.example.pharasayo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-
-import org.w3c.dom.Text;
 
 public class SignUp extends AppCompatActivity {
 
@@ -24,6 +23,7 @@ public class SignUp extends AppCompatActivity {
 
     private Button createAcc
             ,back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,5 +37,21 @@ public class SignUp extends AppCompatActivity {
         address = findViewById(R.id.address);
         unit = findViewById(R.id.unit);
         location = findViewById(R.id.location);
+
+        createAcc = findViewById(R.id.signup);
+        back = findViewById(R.id.back);
+
+        createAcc.setOnClickListener(v -> {
+            if(fullname.getText().toString().length() == 0){
+                fullname.setError("Enter your full name");
+            }
+            if(username.getText().toString().length() == 0){
+                username.setError("Enter your full name");
+            }
+        });
+
+        back.setOnClickListener(v -> {
+            startActivity(new Intent(this, MainActivity.class));
+        });
     }
 }

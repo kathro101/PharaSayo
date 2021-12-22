@@ -43,12 +43,12 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/fullname"
                 android:hint="Full Name"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:boxStrokeColor="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fullname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textCapSentences"
@@ -58,7 +58,6 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/username"
                 android:hint="Username"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:boxStrokeColor="@color/black"
@@ -66,6 +65,7 @@
                 app:counterMaxLength="20">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textCapSentences"
@@ -75,7 +75,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/email"
+
                 android:hint="Email"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:boxStrokeColor="@color/black">
@@ -84,13 +84,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
-                    android:imeOptions="actionNext"/>
+                    android:imeOptions="actionNext"
+                    android:id="@+id/email"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/phone"
+
                 android:hint="Contact Number"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:boxStrokeColor="@color/black">
@@ -99,13 +100,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="phone"
-                    android:imeOptions="actionNext"/>
+                    android:imeOptions="actionNext"
+                    android:id="@+id/phone"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/pass"
+
                 android:hint="Password"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:boxStrokeColor="@color/black"
@@ -115,7 +117,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
-                    android:imeOptions="actionDone"/>
+                    android:imeOptions="actionDone"
+                    android:id="@+id/pass"/>
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
@@ -141,7 +144,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/address"
+
                 android:hint="Street Address"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:boxStrokeColor="@color/black">
@@ -150,13 +153,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textCapSentences"
-                    android:imeOptions="actionNext"/>
+                    android:imeOptions="actionNext"
+                    android:id="@+id/address"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/unit"
+
                 android:hint="Unit/Floor"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:boxStrokeColor="@color/black">
@@ -165,13 +169,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textCapSentences"
-                    android:imeOptions="actionNext"/>
+                    android:imeOptions="actionNext"
+                    android:id="@+id/unit"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/location"
+
                 android:hint="Region/City/District"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:boxStrokeColor="@color/black">
@@ -180,7 +185,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textCapSentences"
-                    android:imeOptions="actionDone"/>
+                    android:imeOptions="actionDone"
+                    android:id="@+id/location"/>
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
@@ -191,14 +197,16 @@
             android:layout_marginTop="3dp"
             android:layout_marginBottom="3dp"
             android:text="Sign Up"
-            android:backgroundTint="#FD9727"/>
+            android:backgroundTint="#FD9727"
+            android:id="@+id/signup"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Already have an Account? Login"
             android:background="#00000000"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:id="@+id/back"/>
     </LinearLayout>
 
 </ScrollView>

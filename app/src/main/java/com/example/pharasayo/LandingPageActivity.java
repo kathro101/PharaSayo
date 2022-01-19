@@ -1,13 +1,15 @@
 package com.example.pharasayo;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
-import android.widget.TextView;
-
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -16,8 +18,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pharasayo.databinding.ActivityLandingPageBinding;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class LandingPageActivity extends AppCompatActivity {
 
@@ -50,19 +50,31 @@ public class LandingPageActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_landing_page);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
-        View headerView = navigationView.getHeaderView(0);
-        TextView userNameTextView = headerView.findViewById(R.id.user_profile_name);
-        CircleImageView profileImageView = headerView.findViewById(R.id.user_profile_image);
-
-        //PLEASE HELP AT DISPLAYING USERNAME
+   //PLEASE HELP AT DISPLAYING USERNAME
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.activity_landing_page_drawer,menu);
         getMenuInflater().inflate(R.menu.landing_page, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if(id == R.id.nav_notifications){
+            Intent intent = new Intent(LandingPageActivity.this,Notification_setting.class);
+            startActivity(intent);
+        }
+        else if(id == R.id.nav_address){
+            Intent intent = new Intent(LandingPageActivity.this,AddressActivity.class);
+            startActivity(intent);
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

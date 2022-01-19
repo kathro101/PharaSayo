@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddressActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_settings"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/settingsBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Close"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentStart="true"/>
+
+            </RelativeLayout>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/settings_addressTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_bar_settings"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="18dp"
+        android:text="Address Profile"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="40sp" />
+
+    <LinearLayout
+        android:id="@+id/TV1"
+        android:layout_width="500dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/settings_addressTV"
+        android:layout_centerHorizontal="true"
+        android:background="#EBECF0"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/settings_name1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="7dp"
+            android:text="Name"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/settings_address1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="7dp"
+            android:text="Address"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/settings_phone1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="7dp"
+            android:text="Contact Number"
+            android:textSize="15dp" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/useBtn1"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/TV1"
+        android:layout_toLeftOf="@id/editBtn1"
+        android:layout_marginRight="10dp"
+        android:text="Use"/>
+
+    <Button
+        android:id="@+id/editBtn1"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/TV1"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="20dp"
+        android:text="Edit"/>
+
+
+    <LinearLayout
+        android:id="@+id/TV2"
+        android:layout_width="500dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/useBtn1"
+        android:layout_marginTop="10dp"
+        android:background="#EBECF0"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/settings_name2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="7dp"
+            android:text="Name"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/settings_address2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="7dp"
+            android:text="Address"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/settings_phone2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="7dp"
+            android:text="Contact Number"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/useBtn2"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/TV2"
+        android:layout_toLeftOf="@id/editBtn1"
+        android:layout_marginRight="10dp"
+        android:text="Use"/>
+
+    <Button
+        android:id="@+id/editBtn2"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/TV2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="20dp"
+        android:text="Edit"/>
+
+    <LinearLayout
+        android:id="@+id/TV3"
+        android:layout_width="500dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/useBtn2"
+        android:layout_marginTop="10dp"
+        android:background="#EBECF0"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/settings_name3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="7dp"
+            android:text="Name"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/settings_address3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="7dp"
+            android:text="Address"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/settings_phone3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="7dp"
+            android:text="Contact Number"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/useBtn3"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/TV3"
+        android:layout_toLeftOf="@id/editBtn3"
+        android:layout_marginRight="10dp"
+        android:text="Use"/>
+
+    <Button
+        android:id="@+id/editBtn3"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/TV3"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="20dp"
+        android:text="Edit"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/useBtn3"
+        android:text="Create New Address"
+        android:layout_marginTop="35dp"
+        android:textSize="15sp"/>
+</RelativeLayout>

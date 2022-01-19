@@ -12,13 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PharaSayo">
         <activity
+            android:name=".AddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Notification_setting"
+            android:exported="false" />
+        <activity
             android:name=".LandingPageActivity"
             android:exported="false"
             android:label="@string/title_activity_landing_page"
             android:theme="@style/Theme.PharaSayo.NoActionBar" />
         <activity
             android:name=".SignUp"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".HomeActivity"
             android:exported="false" />

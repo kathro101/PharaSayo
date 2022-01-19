@@ -21,23 +21,43 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button signup, mLogin;
     private Acc_DBManager dbManager;
+    private TextInputEditText user,pass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        user = findViewById(R.id.username);
+        pass = findViewById(R.id.pass);
+
         dbManager = new Acc_DBManager(this);
         dbManager.open();
 
+        //Sample account
+        dbManager.insert(
+                "admin",
+                "admin",
+                "i am developer",
+                "sample@email.com",
+                "09123456789",
+                "Buenavista III",
+                "Tierra Solana",
+                "Region IVA, General Trias, Cavite"
+        );
         signup = findViewById(R.id.signup_screen);
         mLogin = findViewById(R.id.mainLogin);
         mLogin.setOnClickListener(v -> {
-
+            if (dbManager.attemptLogin(user.getText().toString(),pass.getText().toString()) == true){
+                startActivity(new Intent(MainActivity.this, HomeActivity.class));
+            }else{
+                Toast.makeText(getApplicationContext(),"Incorrect username or password", Toast.LENGTH_SHORT).show();
+            }
         });
 
         final ImageView g_signin = findViewById(R.id.g_signin);

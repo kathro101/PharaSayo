@@ -7,6 +7,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteException;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -23,13 +24,21 @@ import com.google.android.gms.tasks.Task;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button signup;
+    private Button signup, mLogin;
+    private Acc_DBManager dbManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        dbManager = new Acc_DBManager(this);
+        dbManager.open();
+
         signup = findViewById(R.id.signup_screen);
+        mLogin = findViewById(R.id.mainLogin);
+        mLogin.setOnClickListener(v -> {
+
+        });
 
         final ImageView g_signin = findViewById(R.id.g_signin);
 

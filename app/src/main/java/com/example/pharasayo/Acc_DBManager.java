@@ -7,6 +7,11 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class Acc_DBManager {
     static class DB_account_register extends SQLiteOpenHelper{
 
@@ -23,24 +28,23 @@ public class Acc_DBManager {
         private static final String ADDRESS_UNITFLOOR = "address_unitfloor";
         private static final String ADDRESS_CITY = "address_city";
 
-        /* The table includes {USERNAME, PASSWORD, EMAIL, FULL NAME, EMAIL, CONTACT, ADDRESS} */
-        private final String query = "CREATE TABLE " + TABLE_NAME + " ("
-                + UID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + USERNAME + " TEXT NOT NULL,"
-                + PASSWORD + " TEXT NOT NULL,"
-                + FULLNAME + " TEXT NOT NULL,"
-                + EMAIL + " TEXT NOT NULL,"
-                + CONTACT_NUMBER + " TEXT NOT NULL,"
-                + ADDRESS_STREETADDRESS + " TEXT NOT NULL,"
-                + ADDRESS_UNITFLOOR + " TEXT NOT NULL,"
-                + ADDRESS_CITY + " TEXT NOT NULL)";
-
         public DB_account_register(Context context) {
             super(context, DB_NAME, null, DATABASE_VERSION);
         }
 
         @Override
         public void onCreate(SQLiteDatabase db) {
+            /* The table includes {USERNAME, PASSWORD, EMAIL, FULL NAME, EMAIL, CONTACT, ADDRESS} */
+            String query = "CREATE TABLE " + TABLE_NAME + " ("
+                    + UID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                    + USERNAME + " TEXT NOT NULL,"
+                    + PASSWORD + " TEXT NOT NULL,"
+                    + FULLNAME + " TEXT NOT NULL,"
+                    + EMAIL + " TEXT NOT NULL,"
+                    + CONTACT_NUMBER + " TEXT NOT NULL,"
+                    + ADDRESS_STREETADDRESS + " TEXT NOT NULL,"
+                    + ADDRESS_UNITFLOOR + " TEXT NOT NULL,"
+                    + ADDRESS_CITY + " TEXT NOT NULL)";
             db.execSQL(query);
         }
 
@@ -52,7 +56,7 @@ public class Acc_DBManager {
     }
 
     private DB_account_register dbRegister;
-    private Context context;
+    private final Context context;
     private SQLiteDatabase database;
 
     public Acc_DBManager(Context c){
@@ -142,5 +146,34 @@ public class Acc_DBManager {
         }else {
             return false;
         }
+    }
+
+    public Map<String, List<String>> fetch(){
+        Map<String, List<String>> dataset = new HashMap<>();
+        dataset.put(DB_account_register.UID, new ArrayList<>());
+        dataset.put(DB_account_register.USERNAME, new ArrayList<>());
+        dataset.put(DB_account_register.PASSWORD, new ArrayList<>());
+        dataset.put(DB_account_register.FULLNAME, new ArrayList<>());
+        dataset.put(DB_account_register.EMAIL, new ArrayList<>());
+        dataset.put(DB_account_register.CONTACT_NUMBER, new ArrayList<>());
+        dataset.put(DB_account_register.ADDRESS_STREETADDRESS, new ArrayList<>());
+        dataset.put(DB_account_register.ADDRESS_UNITFLOOR, new ArrayList<>());
+        dataset.put(DB_account_register.ADDRESS_CITY, new ArrayList<>());
+
+        String query = "SELECT * FROM " + DB_account_register.TABLE_NAME;
+        Cursor cursor = database.rawQuery(query,null);
+        while (cursor.moveToNext()){
+            dataset.get(DB_account_register.UID).add(cursor.getString(cursor.getColumnIndexOrThrow(DB_account_register.UID)));
+            dataset.get(DB_account_register.USERNAME).add(cursor.getString(cursor.getColumnIndexOrThrow(DB_account_register.USERNAME)));
+            dataset.get(DB_account_register.PASSWORD).add(cursor.getString(cursor.getColumnIndexOrThrow(DB_account_register.PASSWORD)));
+            dataset.get(DB_account_register.FULLNAME).add(cursor.getString(cursor.getColumnIndexOrThrow(DB_account_register.FULLNAME)));
+            dataset.get(DB_account_register.EMAIL).add(cursor.getString(cursor.getColumnIndexOrThrow(DB_account_register.EMAIL)));
+            dataset.get(DB_account_register.CONTACT_NUMBER).add(cursor.getString(cursor.getColumnIndexOrThrow(DB_account_register.CONTACT_NUMBER)));
+            dataset.get(DB_account_register.ADDRESS_STREETADDRESS).add(cursor.getString(cursor.getColumnIndexOrThrow(DB_account_register.ADDRESS_STREETADDRESS)));
+            dataset.get(DB_account_register.ADDRESS_UNITFLOOR).add(cursor.getString(cursor.getColumnIndexOrThrow(DB_account_register.ADDRESS_UNITFLOOR)));
+            dataset.get(DB_account_register.ADDRESS_CITY).add(cursor.getString(cursor.getColumnIndexOrThrow(DB_account_register.ADDRESS_CITY)));
+        }
+
+        return dataset;
     }
 }

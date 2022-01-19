@@ -3,8 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
+<<<<<<< HEAD
     <group android:checkableBehavior="single"
         android:id="@+id/NavigationView">
+=======
+    <group android:checkableBehavior="single">
+>>>>>>> 24ffb0d (Products page update)
         <item
             android:id="@+id/nav_notifications"
             android:icon="@drawable/notification"

@@ -10,7 +10,7 @@ public class Acc_DBManager {
     static class DB_account_register extends SQLiteOpenHelper{
 
         private static  final String DB_NAME = "myDB";
-        private static final String TABLE_NAME = "sampleTable";
+        private static final String TABLE_NAME = "user_account";
         private static final int DATABASE_VERSION = 1;
         private static final String UID = "_id";
         private static final String FULLNAME = "fullname";

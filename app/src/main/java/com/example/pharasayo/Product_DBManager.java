@@ -2,15 +2,9 @@ package com.example.pharasayo;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class Product_DBManager {
     static class DB_Product extends SQLiteOpenHelper {
@@ -136,34 +130,5 @@ public class Product_DBManager {
                 DB_Product.TABLE_NAME,
                 DB_Product.UID + " = " + _id,
                 null);
-    }
-
-    public Map<String, List<String>> fetch(){
-        Map<String, List<String>> dataset = new HashMap<>();
-        dataset.put(DB_Product.UID, new ArrayList<>());
-        dataset.put(DB_Product.PRODUCT_NAME, new ArrayList<>());
-        dataset.put(DB_Product.PRODUCT_PRICE, new ArrayList<>());
-        dataset.put(DB_Product.DESCRIPTION, new ArrayList<>());
-        dataset.put(DB_Product.SELLER_NAME, new ArrayList<>());
-        dataset.put(DB_Product.CONTACT_NUMBER, new ArrayList<>());
-        dataset.put(DB_Product.ADDRESS_STREETADDRESS, new ArrayList<>());
-        dataset.put(DB_Product.ADDRESS_UNITFLOOR, new ArrayList<>());
-        dataset.put(DB_Product.ADDRESS_CITY, new ArrayList<>());
-
-        String query = "SELECT * FROM " + DB_Product.TABLE_NAME;
-        Cursor cursor = database.rawQuery(query,null);
-        while (cursor.moveToNext()){
-            dataset.get(DB_Product.UID).add(cursor.getString(cursor.getColumnIndexOrThrow(DB_Product.UID)));
-            dataset.get(DB_Product.PRODUCT_NAME).add(cursor.getString(cursor.getColumnIndexOrThrow(DB_Product.PRODUCT_NAME)));
-            dataset.get(DB_Product.PRODUCT_PRICE).add(cursor.getString(cursor.getColumnIndexOrThrow(DB_Product.PRODUCT_PRICE)));
-            dataset.get(DB_Product.DESCRIPTION).add(cursor.getString(cursor.getColumnIndexOrThrow(DB_Product.DESCRIPTION)));
-            dataset.get(DB_Product.SELLER_NAME).add(cursor.getString(cursor.getColumnIndexOrThrow(DB_Product.SELLER_NAME)));
-            dataset.get(DB_Product.CONTACT_NUMBER).add(cursor.getString(cursor.getColumnIndexOrThrow(DB_Product.CONTACT_NUMBER)));
-            dataset.get(DB_Product.ADDRESS_STREETADDRESS).add(cursor.getString(cursor.getColumnIndexOrThrow(DB_Product.ADDRESS_STREETADDRESS)));
-            dataset.get(DB_Product.ADDRESS_UNITFLOOR).add(cursor.getString(cursor.getColumnIndexOrThrow(DB_Product.ADDRESS_UNITFLOOR)));
-            dataset.get(DB_Product.ADDRESS_CITY).add(cursor.getString(cursor.getColumnIndexOrThrow(DB_Product.ADDRESS_CITY)));
-        }
-
-        return dataset;
     }
 }

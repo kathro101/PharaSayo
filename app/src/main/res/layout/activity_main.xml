@@ -24,7 +24,7 @@
                 android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
-                android:src="@drawable/pharasayo_logo" />
+                android:src="@drawable/logo_social" />
 
             <LinearLayout
                 android:layout_width="match_parent"

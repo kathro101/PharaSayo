@@ -12,28 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PharaSayo">
         <activity
-<<<<<<< HEAD
-            android:name=".AddressActivity"
-            android:exported="false" />
-        <activity
             android:name=".Notification_setting"
-=======
-            android:name=".ProductInfo"
->>>>>>> 24ffb0d (Products page update)
             android:exported="false" />
         <activity
             android:name=".LandingPageActivity"
-            android:exported="false"
-            android:label="@string/title_activity_landing_page"
-            android:theme="@style/Theme.PharaSayo.NoActionBar" />
+            android:exported="false" />
         <activity
             android:name=".SignUp"
-<<<<<<< HEAD
             android:exported="false"
             android:parentActivityName=".MainActivity" />
-=======
-            android:exported="false" />
->>>>>>> 24ffb0d (Products page update)
         <activity
             android:name=".HomeActivity"
             android:exported="false" />

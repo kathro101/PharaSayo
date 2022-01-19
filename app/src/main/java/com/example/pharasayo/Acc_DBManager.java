@@ -2,6 +2,7 @@ package com.example.pharasayo;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -92,7 +93,6 @@ public class Acc_DBManager {
 
         database.insert(DB_account_register.TABLE_NAME, null, values);
 
-        database.close();
     }
 
     public int update(
@@ -131,5 +131,16 @@ public class Acc_DBManager {
                 DB_account_register.TABLE_NAME,
                 DB_account_register.UID + " = " + _id,
                 null);
+    }
+
+    public boolean attemptLogin(String username, String password){
+        String query = "SELECT * FROM " + DB_account_register.TABLE_NAME + " where " + DB_account_register.USERNAME +" = ? and "+ DB_account_register.PASSWORD + " = ?";
+        Cursor cursor = database.rawQuery(query, new String[] {username, password});
+
+        if(cursor.moveToFirst()){
+            return true;
+        }else {
+            return false;
+        }
     }
 }

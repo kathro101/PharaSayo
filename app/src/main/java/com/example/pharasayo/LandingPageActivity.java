@@ -70,8 +70,6 @@ public class LandingPageActivity extends AppCompatActivity {
             startActivity(intent);
         }
         else if(id == R.id.nav_address){
-            Intent intent = new Intent(LandingPageActivity.this,AddressActivity.class);
-            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

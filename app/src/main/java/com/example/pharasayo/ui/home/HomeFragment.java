@@ -31,6 +31,7 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        /* This is the button */
         Intent intent = new Intent(getActivity(), ProductInfo.class);
         final Button button = (Button) root.findViewById(R.id.addToCart);
 

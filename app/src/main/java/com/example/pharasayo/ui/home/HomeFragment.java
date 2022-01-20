@@ -42,6 +42,7 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
 
 
+        //button
         Button btn1 = (Button) root.findViewById(R.id.addToCart);
 
         btn1.setOnClickListener(new View.OnClickListener() {

@@ -6,40 +6,53 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.GridView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.pharasayo.ProductAdapter;
 import com.example.pharasayo.ProductInfo;
 import com.example.pharasayo.R;
+import com.example.pharasayo.databinding.ActivityMainBinding;
 import com.example.pharasayo.databinding.FragmentHomeBinding;
+
+import org.xmlpull.v1.XmlPullParser;
 
 public class HomeFragment extends Fragment {
 
+    private View view;
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
 
+
+    @NonNull FragmentHomeBinding bindingProduct;
+
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        //super.onCreate(savedInstanceState);
+        bindingProduct = FragmentHomeBinding.inflate(getLayoutInflater());
+        View root1 = bindingProduct.getRoot();
+
+        homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        /* This is the button */
-        Intent intent = new Intent(getActivity(), ProductInfo.class);
-        final Button button = (Button) root.findViewById(R.id.addToCart);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        Button btn1 = (Button) root.findViewById(R.id.addToCart);
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+
+            @Override
             public void onClick(View v) {
-                startActivity(intent);
+                Intent intent = new Intent(getActivity(), ProductInfo.class);
+                getActivity().startActivity(intent);
             }
         });
+
 
         /*final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
@@ -48,6 +61,16 @@ public class HomeFragment extends Fragment {
                 textView.setText(s);
             }
         });*/
+
+        String[] productName = {"Medicine Name", "Medicine Name", "Medicine Name", "Medicine Name", "Medicine Name", "Medicine Name"};
+        String[] productPrice = {"PHP 100.00", "PHP 100.00", "PHP 100.00", "PHP 100.00", "PHP 100.00", "PHP 100.00",};
+        int[] productImages = {R.drawable.biogesic, R.drawable.biogesic, R.drawable.biogesic, R.drawable.biogesic, R.drawable.biogesic, R.drawable.biogesic,};
+
+        ProductAdapter gridAdapter = new ProductAdapter(getActivity(),productName,productPrice,productImages);
+        //GridView prodgrid = (GridView) root1.findViewById(R.id.product_categories);
+        //prodgrid.setAdapter(gridAdapter);
+        //prodgrid.setAdapter(new ProductAdapter(getActivity(),productName,productPrice,productImages));
+
         return root;
     }
 
@@ -56,4 +79,5 @@ public class HomeFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
 }
